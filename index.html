@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D</title>
+    <script src="./lib/three.js"></script>
+    <script src="./lib/jquery-1.11.0.min.js"></script>
+    <script src="./js/Data/Store3DData.js"></script>
+    <script src="./lib/stats.min.js"></script>
+    <script src="./lib/ThreeBSP.js"></script>
+    <script src="./js/common/CommonFunction.js"></script>
+    <script src="./js/common/ObjectCombine.js"></script>
+    <script src="./js/objects/Cube.js"></script>
+    <script src="./js/objects/Wall.js"></script>
+    <script src="./lib/OrbitControls.js"></script>
+    <script src="./js/Data/BuildingData.js"></script>
+    <script src="./js/objects/Store3D.js"></script>
+    <script src="./js/objects/StoreArea.js"></script>
+    <link rel="stylesheet" href="css/store.css">
+</head>
+<body>
+    <div class="sidebar">
+        <img id="fps" class="buttonClass" title="性能调试" src="./res/icon/fps.svg">
+        <img id="reset" class="buttonClass" title="复位场景" src="./res/icon/reset.svg">
+    </div>
+    <div id="container"></div>
+</body>
+<script type="text/javascript">
+    function load(){
+        let store = new Store3D();
+        store.start();
+        document.getElementById("fps").addEventListener('click', function () {
+            store.changeStats();
+        }, false);
+        document.getElementById("reset").addEventListener('click', function () {
+            store.orbitControl.reset();
+        }, false);
+        console.log(store);
+    } 
+    window.onload = load;
+</script>
+</html>
